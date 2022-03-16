@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-{% autoescape true %}
+{% autoescape false %}
 <html>
   <head>
     <meta charset="utf-8">
-    <title>XSS Demo</title>
+    <title>My XSS Demo</title>
     <link rel="stylesheet" href="/static/style.css">
   </head>
 
@@ -26,12 +26,15 @@
     {% if not search_query %}
       <h3>Showing all comments:</h3>
     {% else %}
-      <h3>Showing comments containing "{{ search_query }}":</h3>
+      <h3>Showing comments containing {{ search_query }}:</h3>
     {% endif %}
 
     {% for comment in comments %}
       <div>
         <p>{{ comment }}</p>
+        <!-- <div title={{ comment }}> -->
+        <!-- <a href={{ comment }}>Clicky</a> -->
+        <!-- img src={{ comment }}>Clicky</a> -->
       </div>
     {% endfor %}
 
